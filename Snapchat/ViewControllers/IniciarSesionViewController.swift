@@ -24,16 +24,7 @@ class IniciarSesionViewController: UIViewController {
             print("Intentando Iniciar Sesión")
             if error != nil {
                 print("Se presento el siguiente error: \(error)")
-                Auth.auth().createUser(withEmail: self.emailTextField.text!, password: self.passwordTextField.text!, completion: { (user, error)  in
-                        print("Intentando crear un usuario")
-                        if error != nil {
-                            print("Se presento el siguiente error al crear el usuario: \(error) ")
-                        } else {
-                            print("El usuario fue creado exitosamente")
-                            Database.database().reference().child("usuarios").child(user!.user.uid).child("email").setValue(user!.user.email)
-                            self.performSegue(withIdentifier: "iniciarsesionsegue", sender: nil)
-                        }
-                })
+                self.mostrarAlerta(title: "Error", message: "Usuario no existe o contraseña incorrecta.", action: "Reintentar")
             } else {
                 print("Inicio de Sesion Exitoso")
                 self.performSegue(withIdentifier: "iniciarsesionsegue", sender: nil)
@@ -41,6 +32,16 @@ class IniciarSesionViewController: UIViewController {
         }
     }
     
+    @IBAction func crearCuentaTapped(_ sender: UIButton) {
+        performSegue(withIdentifier: "crearCuentaSegue", sender: nil)
+    }
+    
+    func mostrarAlerta(title: String, message: String, action:String) {
+        let alertaGuia = UIAlertController(title: title, message: message, preferredStyle: .alert)
+        let cancelok = UIAlertAction(title: action, style: .default, handler: nil)
+        alertaGuia.addAction(cancelok)
+        present(alertaGuia, animated: true, completion: nil)
+    }
 
 
 }

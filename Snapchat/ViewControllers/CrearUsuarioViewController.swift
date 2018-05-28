@@ -25,7 +25,7 @@ class CrearUsuarioViewController: UIViewController {
         Auth.auth().createUser(withEmail: self.txtUsuario.text!, password: self.txtPassword.text!, completion: { (user, error)  in
             print("Intentando crear un usuario")
             if error != nil {
-                print("Se presento el siguiente error al crear el usuario: \(error) ")
+                print("Se presento el siguiente error al crear el usuario: \(String(describing: error)) ")
                 self.mostrarAlerta(title: "Error", message: "Se produjo un error al registrar usuario. Vuelva a intentarlo.", action: "Cancelar")
             } else {
                 print("El usuario fue creado exitosamente. usuario \(self.txtUsuario.text!) y password \(self.txtPassword.text!)")

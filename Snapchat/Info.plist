@@ -3,7 +3,9 @@
 <plist version="1.0">
 <dict>
 	<key>NSCameraUsageDescription</key>
-	<string>Necesitamos permisos para acceder a tu album de fotos</string>
+	<string>Necesitamos permisos para usar la camara</string>
+	<key>NSPhotoLibraryUsageDescription</key>
+	<string>Necesitamos permiso para usar el album de fotos</string>
 	<key>CFBundleDevelopmentRegion</key>
 	<string>$(DEVELOPMENT_LANGUAGE)</string>
 	<key>CFBundleExecutable</key>

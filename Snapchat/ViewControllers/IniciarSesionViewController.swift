@@ -23,7 +23,7 @@ class IniciarSesionViewController: UIViewController {
         Auth.auth().signIn(withEmail: emailTextField.text!, password: passwordTextField.text!) { (user, error) in
             print("Intentando Iniciar Sesión")
             if error != nil {
-                print("Se presento el siguiente error: \(error)")
+                print("Se presento el siguiente error: \(String(describing: error))")
                 self.mostrarAlerta(title: "Error", message: "Usuario no existe o contraseña incorrecta.", action: "Reintentar")
             } else {
                 print("Inicio de Sesion Exitoso")

@@ -6,6 +6,7 @@
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14088"/>
+        <capability name="Navigation items with more than one left or right bar item" minToolsVersion="7.0"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -102,7 +103,7 @@
                     <connections>
                         <outlet property="emailTextField" destination="eAG-lR-g0N" id="oSx-fu-Kww"/>
                         <outlet property="passwordTextField" destination="jkW-aN-hzX" id="pl5-70-rqb"/>
-                        <segue destination="Ed2-DM-Z5p" kind="presentation" identifier="iniciarsesionsegue" id="VwG-iz-MuC"/>
+                        <segue destination="Ed2-DM-Z5p" kind="presentation" identifier="iniciarsesionsegue" modalTransitionStyle="coverVertical" id="VwG-iz-MuC"/>
                         <segue destination="5ed-ov-yJn" kind="show" identifier="crearCuentaSegue" id="1l5-Fb-SZn"/>
                     </connections>
                 </viewController>
@@ -113,11 +114,23 @@
         <!--Snaps View Controller-->
         <scene sceneID="7EI-xx-opC">
             <objects>
-                <viewController id="6ft-m0-h75" customClass="SnapsViewController" customModule="Snapchat" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController automaticallyAdjustsScrollViewInsets="NO" id="6ft-m0-h75" customClass="SnapsViewController" customModule="Snapchat" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="iSa-Dd-blZ">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="t3H-6N-92i">
+                                <rect key="frame" x="0.0" y="64" width="375" height="603"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            </tableView>
+                        </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="YfN-lR-Kme" firstAttribute="bottom" secondItem="t3H-6N-92i" secondAttribute="bottom" id="5t6-07-DvE"/>
+                            <constraint firstItem="YfN-lR-Kme" firstAttribute="trailing" secondItem="t3H-6N-92i" secondAttribute="trailing" id="ILv-jS-zRX"/>
+                            <constraint firstItem="t3H-6N-92i" firstAttribute="leading" secondItem="YfN-lR-Kme" secondAttribute="leading" id="aKO-95-P5C"/>
+                            <constraint firstItem="t3H-6N-92i" firstAttribute="top" secondItem="YfN-lR-Kme" secondAttribute="top" id="jLO-PL-fU0"/>
+                        </constraints>
                         <viewLayoutGuide key="safeArea" id="YfN-lR-Kme"/>
                     </view>
                     <navigationItem key="navigationItem" id="InX-jr-J2J">
@@ -132,10 +145,56 @@
                             </connections>
                         </barButtonItem>
                     </navigationItem>
+                    <connections>
+                        <outlet property="tableView" destination="t3H-6N-92i" id="90c-AA-aeS"/>
+                        <segue destination="Jll-hk-BHU" kind="show" identifier="verSnapSegue" id="dI3-s3-HRi"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="WgM-2d-bFF" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="2464.8000000000002" y="33.733133433283363"/>
+        </scene>
+        <!--Ver Snap View Controller-->
+        <scene sceneID="MlN-VZ-mhA">
+            <objects>
+                <viewController id="Jll-hk-BHU" customClass="VerSnapViewController" customModule="Snapchat" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="n6n-Zb-Rye">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="WcV-5y-7qW">
+                                <rect key="frame" x="5" y="84" width="365" height="0.0"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="ZU5-H5-ETn">
+                                <rect key="frame" x="10" y="104" width="355" height="553"/>
+                            </imageView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="ZU5-H5-ETn" firstAttribute="trailing" secondItem="2lI-tA-B8Y" secondAttribute="trailing" constant="10" id="BCQ-fG-Xw6"/>
+                            <constraint firstItem="WcV-5y-7qW" firstAttribute="leading" secondItem="2lI-tA-B8Y" secondAttribute="leading" constant="5" id="Cjq-FD-9Qw"/>
+                            <constraint firstItem="WcV-5y-7qW" firstAttribute="centerX" secondItem="n6n-Zb-Rye" secondAttribute="centerX" id="F7C-Yc-cwk"/>
+                            <constraint firstItem="2lI-tA-B8Y" firstAttribute="trailing" secondItem="WcV-5y-7qW" secondAttribute="trailing" constant="5" id="LTe-qw-p6n"/>
+                            <constraint firstItem="WcV-5y-7qW" firstAttribute="top" secondItem="2lI-tA-B8Y" secondAttribute="top" constant="20" id="NCS-fB-GUK"/>
+                            <constraint firstAttribute="trailing" secondItem="ZU5-H5-ETn" secondAttribute="trailing" constant="10" id="UIP-Y1-Za8"/>
+                            <constraint firstItem="ZU5-H5-ETn" firstAttribute="leading" secondItem="2lI-tA-B8Y" secondAttribute="leading" constant="10" id="co4-dV-udB"/>
+                            <constraint firstItem="ZU5-H5-ETn" firstAttribute="top" secondItem="WcV-5y-7qW" secondAttribute="bottom" constant="20" id="uzu-wx-oV6"/>
+                            <constraint firstItem="ZU5-H5-ETn" firstAttribute="centerX" secondItem="n6n-Zb-Rye" secondAttribute="centerX" id="yhe-zm-jI4"/>
+                            <constraint firstItem="2lI-tA-B8Y" firstAttribute="bottom" secondItem="ZU5-H5-ETn" secondAttribute="bottom" constant="10" id="yrp-10-6i4"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="2lI-tA-B8Y"/>
+                    </view>
+                    <connections>
+                        <outlet property="imageView" destination="ZU5-H5-ETn" id="vZi-rx-cTX"/>
+                        <outlet property="label" destination="WcV-5y-7qW" id="3fT-jZ-3Nv"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="weH-0u-YRN" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2465" y="772"/>
         </scene>
         <!--Title-->
         <scene sceneID="iSO-PC-N6Z">
@@ -199,14 +258,21 @@
                         <viewLayoutGuide key="safeArea" id="Ian-AT-oEh"/>
                     </view>
                     <navigationItem key="navigationItem" title="Title" id="OWA-Ns-u4C">
-                        <barButtonItem key="rightBarButtonItem" systemItem="camera" id="86W-Yz-Pfd">
-                            <connections>
-                                <action selector="camaraTapped:" destination="v8w-V6-XTm" id="DXu-qB-QYz"/>
-                            </connections>
-                        </barButtonItem>
+                        <rightBarButtonItems>
+                            <barButtonItem systemItem="camera" id="86W-Yz-Pfd">
+                                <connections>
+                                    <action selector="camaraTapped:" destination="v8w-V6-XTm" id="DXu-qB-QYz"/>
+                                </connections>
+                            </barButtonItem>
+                            <barButtonItem systemItem="organize" id="eUF-FF-vGV">
+                                <connections>
+                                    <action selector="mediaTapped:" destination="v8w-V6-XTm" id="med-TH-aeb"/>
+                                </connections>
+                            </barButtonItem>
+                        </rightBarButtonItems>
                     </navigationItem>
                     <connections>
-                        <outlet property="descripcionTextField" destination="amb-7f-Gst" id="dBR-hS-V4j"/>
+                        <outlet property="descripcionTextField" destination="amb-7f-Gst" id="enB-Dm-An8"/>
                         <outlet property="elegirContactoBoton" destination="o3O-qj-HWo" id="jsl-rt-lS7"/>
                         <outlet property="imageView" destination="0qV-r9-oRM" id="5aT-r2-QTF"/>
                         <segue destination="KUq-9U-8as" kind="show" identifier="seleccionarContactoSegue" id="nft-dr-3TR"/>

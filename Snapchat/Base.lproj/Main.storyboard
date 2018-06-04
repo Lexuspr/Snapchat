@@ -169,7 +169,7 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="ZU5-H5-ETn">
-                                <rect key="frame" x="10" y="104" width="355" height="553"/>
+                                <rect key="frame" x="10" y="104" width="375" height="553"/>
                             </imageView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -217,18 +217,38 @@
                                     <constraint firstAttribute="height" constant="128" id="nyh-vf-vxj"/>
                                 </constraints>
                             </stackView>
-                            <stackView opaque="NO" contentMode="scaleToFill" fixedFrame="YES" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="73g-tT-79s">
-                                <rect key="frame" x="175" y="432" width="25" height="30"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                            </stackView>
                             <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Descripcion" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="amb-7f-Gst">
                                 <rect key="frame" x="67.5" y="227" width="240" height="30"/>
                                 <nil key="textColor"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="b2E-T8-uoB">
+                                <rect key="frame" x="134.5" y="277" width="106" height="50"/>
+                                <state key="normal" title="Grabar" image="rec">
+                                    <color key="titleColor" red="0.93736290929999999" green="0.045095344820000001" blue="0.095350897229999995" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                </state>
+                                <connections>
+                                    <action selector="recordTapped:" destination="v8w-V6-XTm" eventType="touchUpInside" id="XEE-gd-AVs"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="0ZH-g7-Iox">
+                                <rect key="frame" x="118" y="347" width="139" height="50"/>
+                                <state key="normal" title="Reproducir" image="play">
+                                    <color key="titleColor" red="0.056624350740000003" green="0.1443475511" blue="0.93736290929999999" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                </state>
+                                <connections>
+                                    <action selector="playTapped:" destination="v8w-V6-XTm" eventType="touchUpInside" id="uv1-FJ-Kys"/>
+                                </connections>
+                            </button>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" text="Duracion:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="0Pl-BL-4GQ">
+                                <rect key="frame" x="152" y="417" width="73.5" height="20.5"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="o3O-qj-HWo">
-                                <rect key="frame" x="126.5" y="277" width="122" height="34"/>
+                                <rect key="frame" x="126.5" y="487.5" width="122" height="34"/>
                                 <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="18"/>
                                 <state key="normal" title="Elegir contacto">
@@ -249,10 +269,16 @@
                         <constraints>
                             <constraint firstItem="amb-7f-Gst" firstAttribute="width" secondItem="0qV-r9-oRM" secondAttribute="width" id="2xL-9d-9de"/>
                             <constraint firstItem="amb-7f-Gst" firstAttribute="centerX" secondItem="U3r-bz-nOs" secondAttribute="centerX" id="35K-w5-seT"/>
+                            <constraint firstItem="b2E-T8-uoB" firstAttribute="centerX" secondItem="U3r-bz-nOs" secondAttribute="centerX" id="5yH-v1-Fyd"/>
                             <constraint firstItem="tox-kB-3sF" firstAttribute="top" secondItem="Ian-AT-oEh" secondAttribute="top" constant="20" id="6fs-iS-mFy"/>
                             <constraint firstItem="tox-kB-3sF" firstAttribute="centerX" secondItem="U3r-bz-nOs" secondAttribute="centerX" id="BNH-M1-XD1"/>
-                            <constraint firstItem="o3O-qj-HWo" firstAttribute="top" secondItem="amb-7f-Gst" secondAttribute="bottom" constant="20" id="P0L-rl-65y"/>
+                            <constraint firstItem="0ZH-g7-Iox" firstAttribute="centerX" secondItem="U3r-bz-nOs" secondAttribute="centerX" id="D1I-uS-R7K"/>
                             <constraint firstItem="amb-7f-Gst" firstAttribute="top" secondItem="0qV-r9-oRM" secondAttribute="bottom" constant="15" id="XWQ-8a-Q6g"/>
+                            <constraint firstItem="0Pl-BL-4GQ" firstAttribute="top" secondItem="0ZH-g7-Iox" secondAttribute="bottom" constant="20" id="XpF-bc-4ja"/>
+                            <constraint firstItem="o3O-qj-HWo" firstAttribute="top" secondItem="0Pl-BL-4GQ" secondAttribute="bottom" constant="50" id="ds2-Rr-mSu"/>
+                            <constraint firstItem="b2E-T8-uoB" firstAttribute="top" secondItem="amb-7f-Gst" secondAttribute="bottom" constant="20" id="hGr-Fm-pRR"/>
+                            <constraint firstItem="o3O-qj-HWo" firstAttribute="centerX" secondItem="U3r-bz-nOs" secondAttribute="centerX" id="hPD-3X-nXd"/>
+                            <constraint firstItem="0ZH-g7-Iox" firstAttribute="top" secondItem="b2E-T8-uoB" secondAttribute="bottom" constant="20" id="p7N-lt-pVk"/>
                             <constraint firstItem="o3O-qj-HWo" firstAttribute="centerX" secondItem="U3r-bz-nOs" secondAttribute="centerX" id="tOs-7E-bwL"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="Ian-AT-oEh"/>
@@ -275,6 +301,9 @@
                         <outlet property="descripcionTextField" destination="amb-7f-Gst" id="enB-Dm-An8"/>
                         <outlet property="elegirContactoBoton" destination="o3O-qj-HWo" id="jsl-rt-lS7"/>
                         <outlet property="imageView" destination="0qV-r9-oRM" id="5aT-r2-QTF"/>
+                        <outlet property="lblDuracion" destination="0Pl-BL-4GQ" id="vCb-9h-KfN"/>
+                        <outlet property="playBtn" destination="0ZH-g7-Iox" id="ZUE-68-uPq"/>
+                        <outlet property="recordBtn" destination="b2E-T8-uoB" id="t96-06-oqj"/>
                         <segue destination="KUq-9U-8as" kind="show" identifier="seleccionarContactoSegue" id="nft-dr-3TR"/>
                     </connections>
                 </viewController>
@@ -435,6 +464,8 @@
         </scene>
     </scenes>
     <resources>
+        <image name="play" width="50" height="50"/>
+        <image name="rec" width="50" height="50"/>
         <image name="snapchat200x70" width="200" height="70"/>
     </resources>
 </document>

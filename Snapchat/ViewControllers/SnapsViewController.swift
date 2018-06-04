@@ -24,6 +24,9 @@ class SnapsViewController: UIViewController, UITableViewDelegate, UITableViewDat
                 snap.descrip = (snapshot.value as! NSDictionary)["descripcion"] as! String
                 snap.id = snapshot.key
                 snap.imagenID = (snapshot.value as! NSDictionary)["imagenID"] as! String
+                snap.audioID = (snapshot.value as! NSDictionary)["audioID"] as! String
+                snap.audioTempo = (snapshot.value as! NSDictionary)["audioTempo"] as! String
+                snap.audioURL = (snapshot.value as! NSDictionary)["audioURL"] as! String
                 self.snaps.append(snap)
                 self.tableView.reloadData()
             })
@@ -58,7 +61,7 @@ class SnapsViewController: UIViewController, UITableViewDelegate, UITableViewDat
     }
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         if snaps.count == 0{
-           
+           tableView.deselectRow(at: indexPath, animated: true)
         } else {
         let snap = snaps[indexPath.row]
         performSegue(withIdentifier: "verSnapSegue", sender: snap)
